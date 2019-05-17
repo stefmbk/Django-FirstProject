@@ -1,0 +1,70 @@
+{% extends 'base_layout.html' %}
+{% block title %}
+    <title>{{company.name}}</title>
+{% endblock %}
+{% block content %}
+     <form  action="" method="post">
+         <div style="height: 10px"> </div>
+        <h1>Add a job</h1>
+        <div class="row col-md-12">
+                             <div class="col-md-4">
+
+                                  {% csrf_token %}
+
+
+                                    <label for="exampleFormControlInput1">Position</label>
+                                    <input type="text" class="form-control" name="position" id="position" required="true">
+                                    <label for="exampleFormControlInput1">Industry</label>
+                                    <input type="text" class="form-control" name="industry" >
+                                    <label for="exampleFormControlInput1">Occupation</label>
+                                    <input type="text" class="form-control" name="occupation" >
+                                    <label for="exampleFormControlInput1">Description</label>
+                                    <textarea class="form-control" name="description" rows="3"></textarea>
+
+                              </div>
+                              <div class=" col-md-4">
+                                    <label for="example-number-input" >Salary</label>
+                                    <input class="form-control" type="number" value="2000" name="salary">
+                                    <label for="example-number-input" >Study level</label>
+                                        <div class="col-sm-2">
+                                            <div class="filter-content">
+
+                                                    <div class="custom-control custom-checkbox">
+
+                                                        <input type="radio" class="custom-control-input" id="bachelor" value="bachelor" name="studyLevel">
+                                                        <label class="custom-control-label" for="bachelor">Bachelor</label>
+                                                    </div>
+
+                                                    <div class="custom-control custom-checkbox">
+
+                                                        <input type="radio" class="custom-control-input" id="master"  name="studyLevel" value="master">
+                                                        <label class="custom-control-label" for="master">Master</label>
+                                                    </div>
+
+                                                    <div class="custom-control custom-checkbox">
+
+                                                        <input type="radio" class="custom-control-input" id="phd" value="phd" name="studyLevel">
+                                                        <label class="custom-control-label" for="phd">PhD</label>
+                                                    </div>
+
+
+                                            </div>
+
+                                        </div>
+                                    <label for="exampleFormControlInput1">Place of residence</label>
+                                    <input type="text" class="form-control" name="placeOfResidence" id="placeOfResidence">
+                                    <label for="exampleFormControlInput1">Length of service</label>
+                                    <input type="text" class="form-control" name="lengthOfService" >
+
+                              </div>
+
+
+        </div>
+         <div class="col-md-12">
+          <button class="btn btn-success" type="submit">Post job</button>
+         </div>
+     </form>
+
+
+
+{% endblock %}

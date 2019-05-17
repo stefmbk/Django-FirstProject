@@ -1,0 +1,23 @@
+{% extends 'base_layout.html' %}
+{% block title %}
+    <title>{{ job.position }}</title>
+{% endblock %}
+{% block content %}
+        <h1>{{ job.position }}</h1>
+<ul>
+    <li>Company : <a href="/mainapp/company/{{ job.company.id }}">{{ job.company }}</a></li>
+    <li>Industry : {{ job.industry }}</li>
+    <li>Occupation : {{ job.occupation }}</li>
+    <li>Description : {{ job.description }}</li>
+    <li>Salary : {{ job.salary }}</li>
+    <li>Length of service : {{ job.lengthOfService }}</li>
+    <li>Post date : {{ job.pub_date }}</li>
+</ul>
+<h3>Job requirements</h3>
+<ul>
+    <li>Age : {{ job.age }}</li>
+    <li>Education : {{ job.educationType }}</li>
+    <li>Place of residence : {{ job.placeOfResidence }}</li>
+</ul>
+    <a href="apply">Apply for this job</a>
+{% endblock %}

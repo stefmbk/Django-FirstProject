@@ -1,0 +1,26 @@
+
+{% extends 'base_layout.html' %}
+{% block title %}
+    <title>Apply</title>
+{% endblock %}
+    {% block content %}
+    <aside class="col-sm-4">
+     <h1>Apply</h1>
+        <form  action="" method="post">
+            {% csrf_token %}
+             <div class="form-group">
+                <label for="exampleFormControlInput1">*Full name</label>
+                <input type="text" class="form-control" name="name" >
+                <label for="exampleFormControlInput1">Email</label>
+                <input type="text" class="form-control" name="email" >
+                <label for="exampleFormControlInput1">Study level</label>
+                <input type="text" class="form-control" name="studyLevel" >
+                <label for="exampleFormControlInput1">Motivation letter</label>
+                <textarea class="form-control" name="motivLetter" rows="8"></textarea>
+                <label for="example-number-input" >Phone number</label>
+                <input type="text" class="form-control" name="PhoneNumber" >
+                <input  type="submit" value="Apply for this job" name="postbutton">
+            </div>
+        </form>
+    </aside>
+    {% endblock %}

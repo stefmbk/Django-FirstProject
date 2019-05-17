@@ -1,0 +1,86 @@
+{% extends 'base_layout.html' %}
+{% block title %}
+    <title>Find job</title>
+{% endblock %}
+
+{% block content %}
+    <div class="row col-md-12">
+         <div class="col-md-6">
+             <div style="height: 10px"> </div>
+                {% if job_list %}
+                    <ul>
+                    {% for job in job_list %}
+                        <li><a href="/mainapp/findjob/{{ job.id }}/">{{ job.position }}</a></li>
+                    {% endfor %}
+                    </ul>
+                {% else %}
+                    <p>No jobs are available.</p>
+                {% endif %}
+        </div>
+        <div class="col-md-6">
+               <form method="POST" action="" >
+               {% csrf_token %}
+                <aside class="col-sm-10">
+                 <h3>Find a job</h3>
+
+                        <div class="card" >
+                            <article class="card-group-item">
+                                <header class="card-header">
+                                    <h6 class="title">Search</h6>
+                                    <input type="text" class="form-control" name="search" placeholder="Job position or industry">
+                                </header>
+                                <header class="card-header">
+                                    <h6 class="title">Salary range </h6>
+                                </header>
+                                <div class="filter-content">
+                                    <div class="card-body">
+                                    <div class="form-row">
+                                    <div class="form-group col-md-6">
+                                      <label>Min</label>
+                                      <input type="number" class="form-control" name="min" placeholder="$0">
+                                    </div>
+                                    <div class="form-group col-md-6 text-right">
+                                      <label>Max</label>
+                                      <input type="number" class="form-control" name="max" placeholder="$10000">
+                                    </div>
+                                    </div>
+                                    </div>
+                                </div>
+                            </article>
+                            <article class="card-group-item">
+                                <header class="card-header">
+                                    <h6 class="title">Study level </h6>
+                                </header>
+                                <div class="filter-content">
+                                    <div class="card-body">
+                                        <div class="custom-control custom-checkbox">
+
+                                            <input type="checkbox" class="custom-control-input" id="bachelor" value="bachelor" name="checks[]">
+                                            <label class="custom-control-label" for="bachelor">Bachelor</label>
+                                        </div>
+
+                                        <div class="custom-control custom-checkbox">
+
+                                            <input type="checkbox" class="custom-control-input" id="master"  name="checks[]" value="master">
+                                            <label class="custom-control-label" for="master">Master</label>
+                                        </div>
+
+                                        <div class="custom-control custom-checkbox">
+
+                                            <input type="checkbox" class="custom-control-input" id="phd" value="phd" name="checks[]">
+                                            <label class="custom-control-label" for="phd">PhD</label>
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                            </article>
+                            <button class="btn btn-success" type="submit">Apply filters</button>
+                        </div>
+
+                    </aside>
+                </form>
+        </div>
+
+    </div>
+{% endblock %}

@@ -1,0 +1,48 @@
+{% extends 'base_layout.html' %}
+{% load static %}
+{% block title %}
+    <title>Add company</title>
+{% endblock %}
+{% block content %}
+    <div class=" row col-md-12">
+        <div class="col-md-6">
+            <div style="height: 10px"> </div>
+            <h4>Choose an existing company </h4>
+            {% if company_list %}
+                <ul>
+                {% for company in company_list %}
+                    <li><a href="/mainapp/postjob/{{ company.id }}/">{{ company.name }}</a></li>
+                {% endfor %}
+                </ul>
+            {% else %}
+                <p>No companies are available.</p>
+            {% endif %}
+            {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+            <br><br>
+        </div>
+        <div class="col-md-5">
+
+                    <div style="height: 10px"> </div>
+                    <h4>Add a new company</h4>
+                <form  action="" method="post">
+
+                    {% csrf_token %}
+
+                      <div class="form-group">
+                        <label for="exampleFormControlInput1" >*Name</label>
+                        <input type="text" class="form-control" name="name" required="true" >
+                           <label for="exampleFormControlInput1">*Email</label>
+                        <input type="text" class="form-control" name="email" placeholder="name@example.com" required="true">
+                        <label for="exampleFormControlInput1">Address</label>
+                        <input type="text" class="form-control" name="address" >
+                        <label for="exampleFormControlInput1">Website</label>
+                        <input type="text" class="form-control" name="website" placeholder="www.example.com">
+                        <br>
+                        <input type="submit" class="btn btn-info" value="Add">
+                      </div>
+
+            </form>
+        </div>
+    </div>
+
+{% endblock %}

@@ -1,0 +1,14 @@
+{% extends 'base_layout.html' %}
+{% block title %}
+    <title>{{ company.name }}</title>
+{% endblock %}
+{% block content %}
+<aside class="col-sm-8">
+    <h1>{{ company.name }}</h1>
+    <ul>
+        <li>Email : {{ company.email }}</li>
+        <li>Website : {{ company.website }}</li>
+        <li>Address :{{ company.address }}</li>
+    </ul>
+</aside>
+{% endblock  %}
